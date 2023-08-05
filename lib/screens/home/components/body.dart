@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marcket1/constants.dart';
 import 'package:marcket1/models/Products.dart';
+import 'package:marcket1/screens/detail/detail_screen.dart';
 
 import 'categories.dart';
 import 'item_card.dart';
@@ -38,6 +39,12 @@ class Body extends StatelessWidget {
               ),
               itemBuilder: (context, index) => ItemCard(
                 product: products[index],
+                press: () =>
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            DetailScreen(product: products[index]))),
               ),
             ),
           ),
@@ -46,7 +53,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-
-
-
-
