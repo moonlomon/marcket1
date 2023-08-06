@@ -28,7 +28,7 @@ class ItemCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16)),
               child: Padding(
                   padding: EdgeInsets.all(15),
-                  child: Image.asset(product.image)),
+                  child: Hero(tag: "${product.id}", child: Image.asset(product.image))),
             ),
           ),
           Padding(
