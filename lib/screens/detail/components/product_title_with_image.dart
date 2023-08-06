@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../models/Products.dart';
 
-class ProductTitmeWithImage extends StatelessWidget {
-  const ProductTitmeWithImage({
+class ProductTitleWithImage extends StatelessWidget {
+  const ProductTitleWithImage({
     super.key,
     required this.product,
   });
@@ -53,7 +53,7 @@ class ProductTitmeWithImage extends StatelessWidget {
               Expanded(
                 child: Image.asset(product.image, fit: BoxFit.fill,),
               )
-            ]djsm
+            ]
           )
         ],
       ),

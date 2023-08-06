@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marcket1/constants.dart';
 import 'package:marcket1/models/Products.dart';
 import 'package:marcket1/screens/detail/components/product_title_with_image.dart';
+
+import 'add_to_cart.dart';
+import 'cart_counter.dart';
+import 'color_and_size.dart';
+import 'counter_with_fav_btn.dart';
+import 'description.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -31,38 +38,14 @@ class Body extends StatelessWidget {
                       )),
                   child: Column(
                     children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text("Color"),
-                              Row(
-                                children: <Widget>[
-                                  ColorDot(color: Color(0xFF356C95), isSelected: true,),
-                                  ColorDot(color: Color(0xFFF8C078)),
-                                  ColorDot(color: Color(0xFFA29B9B)),
-                                ],
-                              )
-                            ],
-                          ),
-                          RichText(
-                            text: TextSpan(
-                              style: TextStyle(color: kTextColor),
-                              children: [
-                                TextSpan(text: "Size\n"),
-                                TextSpan(text: "${product.size} cm",
-                                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.bold)
-                                )
-                              ]
-                            ),
-                          )
-                        ],
-                      )
+                      ColorAndSize(product: product),
+                      Description(product: product),
+                      CounterWithFavBtn(),
+                      AddToCart(product: product)
                     ],
                   ),
                 ),
-                ProductTitmeWithImage(product: product)
+                ProductTitleWithImage(product: product),
               ],
             ),
           )
@@ -72,26 +55,4 @@ class Body extends StatelessWidget {
   }
 }
 
-class ColorDot extends StatelessWidget {
-  final Color color;
-  final bool isSelected;
 
-  const ColorDot(
-      {super.key, required this.color, this.isSelected = false // 디폴트 값 주기,
-      });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: kDefaultPaddin / 4, right: kDefaultPaddin / 2),
-      padding: EdgeInsets.all(2.5),
-      height: 24,
-      width: 24,
-      decoration: BoxDecoration(
-          shape: BoxShape.circle, border: Border.all(color: isSelected ? color : Colors.transparent)),
-      child: DecoratedBox(
-        decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-      ),
-    );
-  }
-}
