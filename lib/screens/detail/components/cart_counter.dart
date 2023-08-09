@@ -51,7 +51,7 @@ class _CartCounterState extends State<CartCounter> {
             ),
           ),
         ),
-        onPressed: press, //함수 적용 안됨 : Fuction press -> VoidCallback press
+        onPressed: press, // 함수 적용 안됨 : Fuction press -> VoidCallback press
         child: Icon(icon),
       ),
     );

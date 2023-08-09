@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: kDefaultPaddin/2,
+          width: kDefaultPaddin / 2,
         )
       ],
     );

@@ -43,7 +43,7 @@ class DetailScreen extends StatelessWidget {
           onPressed: (){},
         ),
         SizedBox(
-          width: kDefaultPaddin/2,
+          width: kDefaultPaddin / 2,
         )
       ],
     );
